@@ -1,5 +1,97 @@
 // app/page.tsx
 import Link from "next/link";
+import { Metadata, Viewport } from "next";
+
+const LIVE_URL = "https://inventure-showcase.netlify.app";
+
+export const viewport: Viewport = {
+  themeColor: "#006B4E",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
+// --- SEO METADATA ---
+export const metadata: Metadata = {
+  // Set the base URL for the site
+  metadataBase: new URL(LIVE_URL),
+
+  title: "Inventure Recruitment - Recruiting Without Limits",
+  description:
+    "A new model for recruitment in the renewable energy sector, combining revenue sharing, a marketing engine, a broker community, and an AI-driven learning platform.",
+
+  // Keywords for search engines
+  keywords: [
+    "renewable energy recruitment",
+    "tech recruitment",
+    "AI recruitment",
+    "recruitment platform",
+    "clean energy jobs",
+    "solar jobs",
+    "wind energy careers",
+  ],
+
+  // Information about the authors and publisher
+  authors: [
+    {
+      name: "Inventure Recruitment",
+      url: "https://www.inventurerecruitment.com",
+    },
+  ],
+  creator: "Cristian Furcila Mihalache",
+  publisher: "Inventure Recruitment",
+
+  // Robots instructions for search engine crawlers
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+
+  // Open Graph metadata for social sharing (Facebook, LinkedIn, etc.)
+  openGraph: {
+    title: "Inventure Recruitment - Recruiting Without Limits",
+    description: "A new recruitment model for the renewable energy sector.",
+    url: LIVE_URL,
+    siteName: "Inventure Recruitment",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Inventure Recruitment - A new model for recruitment",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+
+  // Twitter card metadata
+  twitter: {
+    card: "summary_large_image",
+    title: "Inventure Recruitment - Recruiting Without Limits",
+    description: "A new recruitment model for the renewable energy sector.",
+    creator: "@fcristel",
+    images: ["/og-image.jpg"],
+  },
+  // Icons and manifest - to be created
+  // @TODO create icons and manifest
+  //manifest: "/site.webmanifest",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon-16x16.png",
+    apple: "/apple-touch-icon.png",
+  },
+};
 
 const features = [
   {

@@ -1,21 +1,13 @@
 // app/layout.tsx
+"use client";
+
 import "./globals.css";
-import type { Metadata } from "next";
 import Link from "next/link";
 import { Inter } from "next/font/google";
+import Image from "next/image";
+import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-  title: "Inventure Recruitment - Recruiting Without Limits",
-  description:
-    "We’re building a new model for recruitment. One that combines revenue sharing, a marketing engine, a competitive broker community, and an AI-driven learning platform.",
-  keywords:
-    "renewable energy recruitment, tech recruitment, full-stack developer jobs, recruitment platform, AI in recruitment",
-  authors: [{ name: "Inventure Recruitment" }],
-  creator: "Cristian Furcila Mihalache",
-  publisher: "Inventure Recruitment",
-};
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -30,20 +22,28 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
-    <html lang="en" className={inter.className}>
+    <html lang="en" data-scroll-behavior="smooth" className={inter.className}>
       <body className="bg-white text-neutral-800 flex flex-col min-h-screen">
         <header className="sticky top-0 bg-white/80 backdrop-blur-md z-50 border-b border-neutral-200">
           <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+            {/* Logo */}
             <div className="flex-shrink-0">
-              <Link
-                href="/"
-                className="text-2xl font-bold"
-                style={{ color: "#006B4E" }}
-              >
-                Inventure
+              <Link href="/">
+                <Image
+                  src="/inventure-logo-white_nav.svg"
+                  alt="Inventure Recruitment Logo"
+                  width={150}
+                  height={40}
+                  className="h-8 w-auto"
+                  priority
+                />
               </Link>
             </div>
+
+            {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
               {navigation.map((item) => (
                 <a
@@ -55,6 +55,8 @@ export default function RootLayout({
                 </a>
               ))}
             </div>
+
+            {/* Desktop Auth Buttons */}
             <div className="hidden md:flex items-center space-x-4">
               <Link
                 href="/login"
@@ -70,8 +72,89 @@ export default function RootLayout({
                 Sign Up
               </Link>
             </div>
-            {/* A simple mobile menu button can be added here */}
+
+            {/* Mobile Menu Button */}
+            <div className="md:hidden">
+              <button
+                type="button"
+                className="inline-flex items-center justify-center p-2 rounded-md text-neutral-600 hover:text-neutral-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500"
+                aria-controls="mobile-menu"
+                aria-expanded={isMobileMenuOpen}
+                onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
+              >
+                <span className="sr-only">Open main menu</span>
+                {isMobileMenuOpen ? (
+                  <svg
+                    className="h-6 w-6"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                ) : (
+                  <svg
+                    className="h-6 w-6"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M4 6h16M4 12h16m-7 6h7"
+                    />
+                  </svg>
+                )}
+              </button>
+            </div>
           </nav>
+
+          {/* Mobile Menu, show/hide based on menu state. */}
+          {isMobileMenuOpen && (
+            <div className="md:hidden" id="mobile-menu">
+              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                {navigation.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-white hover:bg-green-700"
+                    onClick={() => setMobileMenuOpen(false)} // Close menu on click
+                  >
+                    {item.name}
+                  </a>
+                ))}
+              </div>
+              <div className="pt-4 pb-3 border-t border-neutral-200">
+                <div className="px-2 space-y-1">
+                  <Link
+                    href="/login"
+                    className="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-white hover:bg-green-700"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    href="/signup"
+                    className="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-white hover:bg-green-700"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Sign Up
+                  </Link>
+                </div>
+              </div>
+            </div>
+          )}
         </header>
 
         <main className="flex-grow w-full">{children}</main>
