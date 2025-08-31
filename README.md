@@ -4,7 +4,7 @@ This project is a simple shell website built for the Full-Stack Web Developer & 
 
 The site is fully static, mobile-first, and designed with a minimalist aesthetic, adhering to the core requirements of the assignment.
 
-**Live Demo:** [Link to your Netlify deployment URL]
+**Live Demo:** https://inventure-showcase.netlify.app/
 
 ---
 
