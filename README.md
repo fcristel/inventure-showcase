@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Inventure Recruitment - Showcase Website
 
-## Getting Started
+This project is a simple shell website built for the Full-Stack Web Developer & Tech Operations Lead assignment. It serves as a demonstration of my approach to building a clean, scalable, and user-focused web application using a modern tech stack.
 
-First, run the development server:
+The site is fully static, mobile-first, and designed with a minimalist aesthetic, adhering to the core requirements of the assignment.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**Live Demo:** [Link to your Netlify deployment URL]
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### A Note on Design Choices & Next Steps
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+My approach was guided by three principles: **simplicity, scalability, and speed.**
 
-## Learn More
+I chose Next.js with the App Router, TypeScript, and TailwindCSS because this stack provides a best-in-class developer experience and an incredibly fast user experience out of the box. The design is intentionally minimalist—using generous whitespace, a restrained color palette drawn from your brand, and clean typography—to ensure the focus remains on the content and the user's journey. Every page is server-rendered and SEO-optimized to maximize organic reach from day one.
 
-To learn more about Next.js, take a look at the following resources:
+If this were a live product, the MVP roadmap would focus on establishing the core marketplace first. I would use **Supabase** for the entire backend to simplify the stack, handling authentication, database (PostgreSQL), and storage. The first step would be implementing the **user profiles for both candidates and recruiters**. Next, I'd build the primary interaction loop: allowing recruiters to post jobs and candidates to apply. Once that core functionality is live, I would layer in the marketing and communication tools to facilitate seamless interaction between them. Only after establishing this foundational user base would I introduce the **AI-driven features**, starting with the "Zero-Day Challenge," as a powerful differentiator to attract and retain users.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Getting Started Locally
 
-## Deploy on Vercel
+To run this project on your local machine, please follow these steps.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Prerequisites:**
+*   [Node.js](https://nodejs.org/) (v18.17 or later)
+*   [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**1. Clone the repository:**
+
+`git clone https://github.com/fcristel/inventure-showcase.git`
+
+
+**2. Navigate to the project directory:**
+
+`cd inventure-showcase`
+
+**3. Install the dependencies:**
+
+`npm install`
+*(Or `yarn install` if you prefer Yarn)*
+
+**4. Run the development server:**
+
+`npm run dev`
+*(Or `yarn dev`)*
+
+The application will now be running and accessible at [http://localhost:3000](http://localhost:3000) in your web browser.
